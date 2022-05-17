@@ -1,4 +1,4 @@
-package webDafiti.bases;
+package engine.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -91,6 +91,11 @@ public class SeleniumBase {
     public void clickAndHold(WebElement we){
         Actions action = new Actions(driver);
         action.clickAndHold(we).build().perform();
+    }
+
+    public void click(WebElement we){
+        Actions action = new Actions(driver);
+        action.click(we).build().perform();
     }
 
 }

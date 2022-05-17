@@ -1,12 +1,12 @@
-package automationcraft.testcreation.webDafiti.pages;
+package testcreation.webGeminisClub.pages;
 
-import automationcraft.engine.database.MongoDBManage;
-import org.bson.Document;
+
+import engine.selenium.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import automationcraft.engine.selenium.SeleniumBase;
+import engine.selenium.SeleniumBase;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,12 +17,13 @@ import java.util.List;
  */
 
 public class GeminisHomeUserPage extends SeleniumBase {
-    public DafitiHomeUserPage(WebDriver driver) {
-        super(driver);
-    }
-    
+
     //Locators
     By btn = By.className("");
+
+    public GeminisHomeUserPage(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
+    }
 
     //Keyword Driven
 
@@ -32,7 +33,7 @@ public class GeminisHomeUserPage extends SeleniumBase {
      */
 
     public void metodo(){
-        waitUrlContains();
+        waitUrlContains("");
     }
 
 

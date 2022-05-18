@@ -1,11 +1,13 @@
 package testcreation.webGeminisClub.pages;
 
-//import org.bson.Document;
+
+import engine.selenium.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import engine.selenium.SeleniumBase;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -14,13 +16,12 @@ import java.util.List;
  * @version 1
  */
 
-public class GeminisHomePage extends SeleniumBase {
+public class GCsHomeUserPage extends SeleniumBase {
 
-    
     //Locators
-    By btnLogin = By.xpath("//a[contains(text(),'Iniciar sesion/Registrarse')]");
+    By btn = By.className("");
 
-    public GeminisHomePage(WebDriver driver, WebDriverWait wait) {
+    public GCHomeUserPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
 
@@ -30,10 +31,9 @@ public class GeminisHomePage extends SeleniumBase {
      * Ir a login page
      * 
      */
-    public void login(){
-        WebElement loginButton = findElement(btnLogin);
-        click(loginButton);
-        waitUrlContains("/login");
+
+    public void metodo(){
+        waitUrlContains("");
     }
 
 

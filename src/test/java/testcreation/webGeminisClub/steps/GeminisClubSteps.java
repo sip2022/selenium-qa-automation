@@ -5,26 +5,26 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import testcreation.webGeminisClub.pages.GeminisHomePage;
-import testcreation.webGeminisClub.pages.GeminisLoginPage;
-import testcreation.webGeminisClub.pages.GeminisResetPasswordPage;
-
+import testcreation.webGeminisClub.pages.*;
 public class GeminisClubSteps {
     String url = "http://34.130.26.22";
     WebDriver driver = AppHook.getDriver();
     WebDriverWait wait = AppHook.getWait();
-    GeminisHomePage homePage;
-    GeminisLoginPage loginPage;
-    GeminisResetPasswordPage resetPasswordPage;
+    GCHomePage homePage;
+    GCLoginPage loginPage;
+    GCResetPasswordPage resetPasswordPage;
+    GCSignUpPage signUpPage;
+
+    
     @Given("estoy en un navegador con la pagina inicial de Geminis Club")
     public void estoyEnUnNavegadorConLaPaginaInicialDeGeminisClub() {
-        homePage = new GeminisHomePage(driver,wait);
+        homePage = new GCHomePage(driver,wait);
         homePage.goToUrl(url);
     }
 
     @When("selecciono iniciar sesion/registrarse")
     public void seleccionoIniciarSesion() {
-        loginPage = new GeminisLoginPage(driver, wait);
+        loginPage = new GCLoginPage(driver, wait);
         homePage.login();
 
     }
@@ -59,7 +59,7 @@ public class GeminisClubSteps {
     @When("presiono olvide contraseña")
     public void presionoOlvideContraseña() {
         loginPage.resetPassword();
-        resetPasswordPage = new GeminisResetPasswordPage(driver,wait);
+        resetPasswordPage = new GCResetPasswordPage(driver,wait);
     }
 
     @When("ingreso mi mail de usuario {string} en olvide contrasena")
@@ -92,34 +92,42 @@ public class GeminisClubSteps {
     }
 
     @When("ingreso nombre {string}")
-    public void ingresoNombre(String arg0) {
+    public void ingresoNombre(String arg0){
+        signUpPage.setData(arg0,"name");
     }
 
     @When("ingreso apellido {string}")
     public void ingresoApellido(String arg0) {
+        signUpPage.setData(arg0,"lastName");
     }
 
-    @When("ingreso dni {int}")
-    public void ingresoDni(int arg0) {
+    @When("ingreso dni {string}")
+    public void ingresoDni(String arg0) {
+        signUpPage.setData(arg0,"dni");
     }
 
-    @When("ingreso edad {int}")
-    public void ingresoEdad(int arg0) {
+    @When("ingreso edad {string}")
+    public void ingresoEdad(String arg0) {
+        signUpPage.setData(arg0,"age");
     }
 
     @When("ingreso telefono {string}")
     public void ingresoTelefono(String arg0) {
+        signUpPage.setData(arg0,"phone");
     }
 
     @When("ingreso email {string}")
     public void ingresoEmail(String arg0) {
+        signUpPage.setData(arg0,"email");
     }
 
     @When("ingreso contrasena {string} del nuevo usuario")
     public void ingresoContrasenaDelNuevoUsuario(String arg0) {
+        signUpPage.setData(arg0,"password");
     }
 
     @When("presiono registrarse")
     public void presionoRegistrarse() {
+        signUpPage.signUp();
     }
 }

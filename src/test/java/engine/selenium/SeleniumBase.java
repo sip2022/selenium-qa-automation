@@ -54,8 +54,7 @@ public class SeleniumBase {
     }
 
     public void goToUrl(String url){
-        driver.get(url);
-    }
+        driver.get(url);}
 
     public void setText(By localizador, String s){
         driver.findElement(localizador).sendKeys(s);

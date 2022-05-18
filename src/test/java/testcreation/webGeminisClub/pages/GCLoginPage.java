@@ -16,7 +16,7 @@ import java.util.List;
  * @version 1
  */
 
-public class GeminisLoginPage extends SeleniumBase {
+public class GCLoginPage extends SeleniumBase {
 
     //Locators
     By email = By.name("email");
@@ -25,7 +25,7 @@ public class GeminisLoginPage extends SeleniumBase {
     By newAccountBtn = By.id("crear-Usuario");
 	By resetPasswordBtn = By.id("olvContraLogin");
 
-    public GeminisLoginPage(WebDriver driver, WebDriverWait wait) {
+    public GCLoginPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
 

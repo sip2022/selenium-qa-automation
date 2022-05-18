@@ -10,8 +10,8 @@ Feature:
     And presiono crear cuenta
     And ingreso nombre ""
     And ingreso apellido ""
-    And ingreso dni 40000000
-    And ingreso edad 24
+    And ingreso dni "40000000"
+    And ingreso edad "24"
     And ingreso telefono ""
     And ingreso email "usergeminisclub@gmail.com"
     And ingreso contrasena "user1234" del nuevo usuario

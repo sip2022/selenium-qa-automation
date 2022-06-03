@@ -3,7 +3,7 @@ Feature:
   Quiero ,
   Para .
 
- @test 
+ @te
   Scenario: Registrar usuario
     Given estoy en un navegador con la pagina inicial de Geminis Club
   	When selecciono iniciar sesion/registrarse

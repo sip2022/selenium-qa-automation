@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/java/testcreation/webGeminisClub/features"},
         glue = {"testcreation.webGeminisClub.steps","engine.bdd"},
         plugin = {"pretty"},
-        tags = "@test")
+        tags = "")
 public class GeminisClubRunner {
 
 }

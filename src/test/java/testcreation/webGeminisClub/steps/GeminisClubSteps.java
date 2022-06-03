@@ -7,19 +7,27 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import testcreation.webGeminisClub.pages.*;
 public class GeminisClubSteps {
-    String url = "http://34.130.26.22";
+    String url = "http://front.unlusip.com/";
+    String urlSignUp = "http://front.unlusip.com/newUser";
     WebDriver driver = AppHook.getDriver();
     WebDriverWait wait = AppHook.getWait();
     GCHomePage homePage;
     GCLoginPage loginPage;
     GCResetPasswordPage resetPasswordPage;
     GCSignUpPage signUpPage;
+    GSActivationPage activationPage;
 
     
     @Given("estoy en un navegador con la pagina inicial de Geminis Club")
     public void estoyEnUnNavegadorConLaPaginaInicialDeGeminisClub() {
         homePage = new GCHomePage(driver,wait);
         homePage.goToUrl(url);
+    }
+
+     @Given("estoy en un navegador con la pagina de registro de Geminis Club")
+    public void estoyEnUnNavegadorConLaPaginaDeRegistroDeGeminisClub() {
+        signUpPage = new GCSignUpPage(driver,wait);
+        signUpPage.goToUrl(urlSignUp);
     }
 
     @When("selecciono iniciar sesion/registrarse")
@@ -78,8 +86,10 @@ public class GeminisClubSteps {
     public void presionoGuardarContraseña() {
     }
 
-    @Then("el navegador muestra el login con el mensaje {string}")
-    public void elNavegadorMuestraElLoginConElMensaje(String arg0) {
+    @Then("el navegador muestra el mensaje {string}")
+    public void elNavegadorMuestraElMensaje(String arg0) {
+    	activationPage = new GSActivationPage(driver,wait);
+    	activationPage.validateNewUser();
     }
 
     @When("selecciono iniciar sesion\\/registrarse")
@@ -106,9 +116,9 @@ public class GeminisClubSteps {
         signUpPage.setData(arg0,"dni");
     }
 
-    @When("ingreso edad {string}")
-    public void ingresoEdad(String arg0) {
-        signUpPage.setData(arg0,"age");
+    @When("ingreso fecha de nacimiento {string}")
+    public void ingresoFNacimiento(String arg0) {
+        signUpPage.setData(arg0,"birthDate");
     }
 
     @When("ingreso telefono {string}")

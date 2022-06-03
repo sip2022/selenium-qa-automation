@@ -1,4 +1,4 @@
-package engine.bdd;
+package bases;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -27,7 +27,7 @@ public class AppHook {
         wait = new WebDriverWait(driver,15);
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+       // driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     @After

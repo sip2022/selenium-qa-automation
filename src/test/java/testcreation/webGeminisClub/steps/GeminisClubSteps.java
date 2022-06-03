@@ -1,14 +1,13 @@
 package testcreation.webGeminisClub.steps;
 
-import engine.bdd.AppHook;
-import io.cucumber.java.en.And;
+import bases.AppHook;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import testcreation.webGeminisClub.pages.*;
 public class GeminisClubSteps {
     String url = "http://front.unlusip.com/";
-    String urlSignUp = "http://front.unlusip.com/newUser";
+    String urlSignUp = "http://front.unlusip.com/registro";
     WebDriver driver = AppHook.getDriver();
     WebDriverWait wait = AppHook.getWait();
     GCHomePage homePage;

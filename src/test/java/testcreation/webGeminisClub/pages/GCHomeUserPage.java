@@ -1,7 +1,7 @@
 package testcreation.webGeminisClub.pages;
 
 
-import engine.selenium.SeleniumBase;
+import bases.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;

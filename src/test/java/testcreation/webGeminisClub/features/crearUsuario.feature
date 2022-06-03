@@ -3,17 +3,15 @@ Feature:
   Quiero ,
   Para .
 
- @te
+ @test @muestraClase
   Scenario: Registrar usuario
-    Given estoy en un navegador con la pagina inicial de Geminis Club
-  	When selecciono iniciar sesion/registrarse
-    And presiono crear cuenta
-    And ingreso nombre ""
-    And ingreso apellido ""
+    Given estoy en un navegador con la pagina de registro de Geminis Club
+  	When ingreso nombre "User"
+    And ingreso apellido "Test"
     And ingreso dni "40000000"
-    And ingreso edad "24"
-    And ingreso telefono ""
-    And ingreso email "usergeminisclub@gmail.com"
+    And ingreso fecha de nacimiento "18121997"
+    And ingreso telefono "144000000"
+    And ingreso email "usergeminisclub@mail.com"
     And ingreso contrasena "user1234" del nuevo usuario
     And presiono registrarse
-  	Then el navegador muestra el login con el mensaje "Creaste tu cuenta activala y comenza a entrenar con nosotros"
+  	Then el navegador muestra el login con el mensaje "¡Su cuenta ha sido registrada con éxito, pero no está activada!"

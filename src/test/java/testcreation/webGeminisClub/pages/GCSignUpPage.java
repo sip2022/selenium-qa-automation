@@ -16,7 +16,7 @@ public class GCSignUpPage extends SeleniumBase {
     By inputName = By.name("firstName");
     By inputLastName = By.name("lastName");
     By inputDni = By.name("dni");
-    By inputAge = By.name("age");
+    By inputBirthDate = By.name("birthDate");
     By inputPhone = By.name("phone");
     By inputMail = By.name("email");
     By inputPassword = By.name("password");
@@ -40,7 +40,7 @@ public class GCSignUpPage extends SeleniumBase {
             case "dni":setText(inputDni,arg0);
                 Assert.assertEquals(getText(inputDni),arg0);
                 break;
-            case "age":setText(inputAge,arg0);
+            case "birthDate":setText(inputBirthDate,arg0);
                 Assert.assertEquals(getText(inputAge),arg0);
                 break;
             case "phone":setText(inputPhone,arg0);
@@ -55,7 +55,7 @@ public class GCSignUpPage extends SeleniumBase {
         }
 
     }
-
+   
 
 
 

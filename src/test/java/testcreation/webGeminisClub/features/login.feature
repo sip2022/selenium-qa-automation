@@ -1,9 +1,3 @@
-}
-
-
-
-
-
 Feature: Inicio sesión de usuarios
   Como usuario de Geminis Club,
   Quiero iniciar sesón de mi cuenta en Geminis Club,

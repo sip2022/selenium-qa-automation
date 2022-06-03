@@ -41,7 +41,7 @@ public class GCSignUpPage extends SeleniumBase {
                 Assert.assertEquals(getText(inputDni),arg0);
                 break;
             case "birthDate":setText(inputBirthDate,arg0);
-                Assert.assertEquals(getText(inputAge),arg0);
+                Assert.assertEquals(getText(inputBirthDate),arg0);
                 break;
             case "phone":setText(inputPhone,arg0);
                 Assert.assertEquals(getText(inputPhone),arg0);

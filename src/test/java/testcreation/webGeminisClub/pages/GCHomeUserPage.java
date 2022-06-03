@@ -4,22 +4,18 @@ package testcreation.webGeminisClub.pages;
 import engine.selenium.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import engine.selenium.SeleniumBase;
-
-import java.util.Collection;
-import java.util.List;
 
 /***
  * @author luisinakelly
  * @version 1
  */
 
-public class GCsHomeUserPage extends SeleniumBase {
+public class GCHomeUserPage extends SeleniumBase {
 
     //Locators
     By btn = By.className("");
+
 
     public GCHomeUserPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);

@@ -15,7 +15,7 @@ public class GeminisClubSteps {
     GCLoginPage loginPage;
     GCResetPasswordPage resetPasswordPage;
     GCSignUpPage signUpPage;
-    GSActivationPage activationPage;
+    GCActivationPage activationPage;
 
     
     @Given("estoy en un navegador con la pagina inicial de Geminis Club")
@@ -88,8 +88,8 @@ public class GeminisClubSteps {
 
     @Then("el navegador muestra el mensaje {string}")
     public void elNavegadorMuestraElMensaje(String arg0) {
-    	activationPage = new GSActivationPage(driver,wait);
-    	activationPage.validateNewUser();
+    	activationPage = new GCActivationPage(driver,wait);
+    	activationPage.validateNewUser(arg0);
     }
 
     @When("selecciono iniciar sesion\\/registrarse")

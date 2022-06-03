@@ -20,8 +20,7 @@ public class GCActivationPage extends SeleniumBase {
 
     public void validateNewUser(String arg0) {
         waitUrlContains("/activacion");
-        Assert.assertEquals(getText(text),arg0);       
-
+        Assert.assertEquals(getText(text),arg0);
     }
 
 

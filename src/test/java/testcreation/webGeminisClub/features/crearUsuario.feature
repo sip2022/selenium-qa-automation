@@ -14,4 +14,4 @@ Feature:
     And ingreso email "usergeminisclub@mail.com"
     And ingreso contrasena "user1234" del nuevo usuario
     And presiono registrarse
-  	Then el navegador muestra el login con el mensaje "¡Su cuenta ha sido registrada con éxito, pero no está activada!"
+  	Then el navegador muestra el mensaje "¡Su cuenta ha sido registrada con éxito, pero no está activada!"

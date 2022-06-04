@@ -1,11 +1,11 @@
-package testcreation.webGeminisClub.pages;
+package webGeminisClub.testcreation.pages;
 
-//import org.bson.Document;
+import webGeminisClub.bases.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import bases.SeleniumBase;
+
 
 /***
  * @author luisinakelly
@@ -17,7 +17,7 @@ public class GCHomePage extends SeleniumBase {
     
     //Locators
     By btnLogin = By.xpath("//a[contains(text(),'Iniciar sesion/Registrarse')]");
-
+    By btnActivities = By.xpath("//a[contains(text(),'Actividades')]");
     public GCHomePage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
@@ -29,12 +29,13 @@ public class GCHomePage extends SeleniumBase {
      * 
      */
     public void login(){
-        WebElement loginButton = findElement(btnLogin);
-        click(loginButton);
+        click(btnLogin);
         waitUrlContains("/login");
     }
 
 
-   
-
+    public void goToActivities() {
+        click(btnActivities);
+        waitUrlContains("actividades");
+    }
 }

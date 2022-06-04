@@ -1,6 +1,6 @@
-package testcreation.webGeminisClub.pages;
+package webGeminisClub.testcreation.pages;
 
-import bases.SeleniumBase;
+import webGeminisClub.bases.SeleniumBase;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

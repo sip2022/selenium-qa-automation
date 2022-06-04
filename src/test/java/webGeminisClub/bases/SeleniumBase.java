@@ -1,4 +1,4 @@
-package bases;
+package webGeminisClub.bases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -53,7 +53,8 @@ public class SeleniumBase {
     }
 
     public void goToUrl(String url){
-        driver.get(url);}
+        driver.get(url);
+    }
 
     public void setText(By localizador, String s){
         driver.findElement(localizador).sendKeys(s);
@@ -90,10 +91,4 @@ public class SeleniumBase {
         Actions action = new Actions(driver);
         action.clickAndHold(we).build().perform();
     }
-
-    public void click(WebElement we){
-        Actions action = new Actions(driver);
-        action.click(we).build().perform();
-    }
-
 }

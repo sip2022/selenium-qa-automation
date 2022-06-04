@@ -1,10 +1,11 @@
-package bases;
+package webGeminisClub.bases;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -25,9 +26,8 @@ public class AppHook {
     public void setupBrowser() {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver,15);
-        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-       // driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     @After

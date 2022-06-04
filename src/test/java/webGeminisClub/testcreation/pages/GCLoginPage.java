@@ -1,4 +1,4 @@
-package testcreation.webGeminisClub.pages;
+package webGeminisClub.testcreation.pages;
 
 
 import org.junit.Assert;
@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import bases.SeleniumBase;
+import webGeminisClub.bases.SeleniumBase;
 
 /***
  * @author luisinakelly
@@ -54,7 +54,7 @@ public class GCLoginPage extends SeleniumBase {
      */
     public void signIn(){
 	    WebElement btnSignUp = findElement(newAccountBtn);
-    	click(btnSignUp);
+    	click(newAccountBtn);
     	// agregar wait
     }
 
@@ -64,7 +64,7 @@ public class GCLoginPage extends SeleniumBase {
      */
     public void signUp(){
     	WebElement btnSignUp = findElement(newAccountBtn);
-    	click(btnSignUp);
+    	click(newAccountBtn);
     	waitUrlContains("/newUser");
     }
 

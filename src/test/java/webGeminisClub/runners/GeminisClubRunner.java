@@ -1,4 +1,4 @@
-package delivery.runners;
+package webGeminisClub.runners;
 
 
 import io.cucumber.junit.Cucumber;
@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/java/testcreation/webGeminisClub/features"},
-        glue = {"testcreation.webGeminisClub.steps","engine.bdd"},
+        features = {"src/test/java/webGeminisClub/testcreation/features"},
+        glue = {"webGeminisClub.testcreation.steps","webGeminisClub.bases"},
         plugin = {"pretty"},
         tags = "@muestraClase")
 public class GeminisClubRunner {

@@ -16,7 +16,10 @@ public class GeminisClubSteps {
     GCSignUpPage signUpPage;
     GCActivationPage activationPage;
 
-    //GCActivitiesPage activitiesPage;
+    GCActivitiesPage activitiesPage;
+    GCReservationPage reservationPage;
+    GCPlanPage planPage;
+    GCPaymentPage paymentPage;
 
     
     @Given("estoy en un navegador con la pagina inicial de Geminis Club")
@@ -152,38 +155,93 @@ public class GeminisClubSteps {
     @When("presiono registrarse")
     public void presionoRegistrarse() {
         signUpPage.signUp();
-
-
+        activationPage = new GCActivationPage(driver,wait);
     }
     @When("presiono boton Actividades")
     public void presiono_boton_actividades() {
         homePage.goToActivities();
-
+        activitiesPage = new GCActivitiesPage(driver,wait);
     }
 
     @When("presiono boton para reservar la clase de {string}")
     public void presiono_boton_para_reservar_la_clase_de(String string) {
-        //activitiesPage.selectActivity(string);
+        activitiesPage.selectActivity(string);
     }
 
     @When("selecciono el turno {string}")
     public void selecciono_el_turno(String string) {
-        //activitiesPage.reservation(string);
+        activitiesPage.reservation(string);
     }
 
     @When("el navegador me muestra modal de reserva")
     public void el_navegador_me_muestra_modal_de_reserva() {
-        //activitiesPage.validateFrameReservation();
+        activitiesPage.validateFrameReservation();
     }
 
     @When("presiono boton reservar")
     public void presiono_boton_reservar() {
-        //activitiesPage.confirmReservation();
+        activitiesPage.confirmReservation();
     }
 
-    @Then("el navegador me muestra un mensaje de reserva exitosa")
+    @When("el navegador me muestra un mensaje de reserva exitosa")
     public void el_navegador_me_muestra_un_mensaje_de_reserva_exitosa() {
-        //activitiesPage.validateReservation();
+        activitiesPage.validateReservation();
     }
 
+    @Then("el navegador me muestra la nueva reserva {string} en la pagina de mis reservas")
+    public void elNavegadorMeMuestraLaNuevaReservaEnLaPaginaDeMisReservas(String arg0) {
+        reservationPage.searchReservation(arg0);
+    }
+
+    @When("inicio sesion con mi mail {string} y contraseña {string}")
+    public void inicioSesionConMiMailYContraseña(String arg0, String arg1) throws InterruptedException {
+        this.estoyEnUnNavegadorConLaPaginaDeRegistroDeGeminisClub();
+        this.ingresoNombre("user");
+        this.ingresoApellido("gym 1");
+        this.ingresoDni("77777777");
+        this.ingresoFNacimiento("08062022");
+        this.ingresoTelefono("1122334400");
+        this.ingresoEmail("usergym1@mail.com");
+        this.ingresoContrasenaDelNuevoUsuario("user1234");
+        this.presionoRegistrarse();
+    }
+
+    @When("el navegador me muestra un mensaje de suscripcion exitosa")
+    public void elNavegadorMeMuestraUnMensajeDeSuscripcionExitosa() {
+        planPage.validateSuscriptionOk();
+    }
+
+    @When("presiono boton Planes")
+    public void presionoBotonPlanes() {
+        homePage.goToPlan();
+        planPage = new GCPlanPage(driver,wait);
+    }
+
+    @When("selecciono el plan {string}")
+    public void seleccionoElPlan(String arg0) {
+        planPage.selectPlan(arg0);
+    }
+
+
+    @When("presiono el boton suscribirse")
+    public void presionoElBotonSuscribirse() {
+        planPage.subscribe();
+    }
+
+    @When("confirmo suscripcion")
+    public void confirmoSuscripcion() {
+        planPage.confirmSubscription();
+    }
+
+
+    @When("Ingreso la cantidad de meses que quiero suscribirme al plan {string}")
+    public void ingresoLaCantidadDeMesesQueQuieroSuscribirmeAlPlan(String arg0) {
+        planPage.setMonthsSubscription(arg0);
+    }
+
+    @Then("el navegador me muestra mi lista de pagos con el pago pendiente de la suscripcion por {int} mes del plan {string} valor mensual {int}")
+    public void elNavegadorMeMuestraMiListaDePagos(int arg0, String arg1, int arg2) {
+        paymentPage = new GCPaymentPage(driver,wait);
+        paymentPage.validatePaymentList(arg0,arg1,arg2);
+    }
 }

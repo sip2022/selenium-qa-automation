@@ -3,7 +3,7 @@ Feature: Inicio sesión de usuarios
   Quiero iniciar sesón de mi cuenta en Geminis Club,
   Para poder utilizar el sistema.
 
-  @test
+
   Scenario: Login cliente
     Given estoy en un navegador con la pagina inicial de Geminis Club
     When selecciono iniciar sesion/registrarse
@@ -13,7 +13,7 @@ Feature: Inicio sesión de usuarios
     Then  el navegador muestra la pagina de inicio de "cliente"
 
 
- @test 
+
   Scenario: Login administrador
     Given estoy en un navegador con la pagina inicial de Geminis Club
     When selecciono iniciar sesion/registrarse
@@ -22,7 +22,7 @@ Feature: Inicio sesión de usuarios
    And presiono ingresar
     Then  el navegador muestra la pagina de inicio de "administracion"
 
-  @test 
+
   Scenario: Login analista
     Given estoy en un navegador con la pagina inicial de Geminis Club
     When selecciono iniciar sesion/registrarse
@@ -31,7 +31,7 @@ Feature: Inicio sesión de usuarios
     And presiono ingresar
     Then  el navegador muestra la pagina de inicio de "analista"
 
-  @test 
+
   Scenario: Login profesor
     Given estoy en un navegador con la pagina inicial de Geminis Club
     When selecciono iniciar sesion/registrarse

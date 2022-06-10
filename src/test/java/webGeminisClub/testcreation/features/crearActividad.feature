@@ -3,7 +3,7 @@ Feature: Crear Actividad
   Quiero crear actividades,
   Para poder ofrecer clases a los clientes.
 
- @test 
+
   Scenario: 
     Given
   	When

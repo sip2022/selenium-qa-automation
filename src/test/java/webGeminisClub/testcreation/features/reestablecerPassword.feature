@@ -3,7 +3,7 @@ Feature: Reestablecer contraseña
   Quiero reestablecer mi contraseña,
   Para poder iniciar sesión en el sistema.
 
- @test 
+
   Scenario: 
     Given estoy en un navegador con la pagina inicial de Geminis Club
   	When selecciono iniciar sesion

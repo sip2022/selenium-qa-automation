@@ -3,7 +3,7 @@ Feature: Pago suscripcion
   Quiero poder pagar la suscripcion al pal elegido,
   Para poder seguir utilizando los servicios del gimnasio.
 
- @test 
+
   Scenario: Pago Plan  
     Given
   	When

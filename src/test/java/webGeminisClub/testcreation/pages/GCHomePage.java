@@ -18,6 +18,7 @@ public class GCHomePage extends SeleniumBase {
     //Locators
     By btnLogin = By.xpath("//a[contains(text(),'Iniciar sesion/Registrarse')]");
     By btnActivities = By.xpath("//a[contains(text(),'Actividades')]");
+    By btnPlans = By.xpath("//a[contains(text(),'Planes')]");
     public GCHomePage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
@@ -37,5 +38,10 @@ public class GCHomePage extends SeleniumBase {
     public void goToActivities() {
         click(btnActivities);
         waitUrlContains("actividades");
+    }
+
+    public void goToPlan() {
+        click(btnPlans);
+        waitUrlContains("planes");
     }
 }

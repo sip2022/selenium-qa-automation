@@ -3,12 +3,14 @@ Feature: Reservar actividad
   Quiero reservar un turno,
   Para poder realizar una clase .
 
- @test 
+ @test
   Scenario: Reservar Actividad
     Given estoy en un navegador con la pagina inicial de Geminis Club
-  	When presiono boton Actividades
+  	When inicio sesion con mi mail "usuario" y contraseña "password"
+    And presiono boton Actividades
   	And presiono boton para reservar la clase de "SPINNING"
-  	And selecciono el turno "MONDAY: 9:15 - 10:15"
+  	And selecciono el turno "Lunes: 9:15 - 10:15"
   	And el navegador me muestra modal de reserva
   	And presiono boton reservar
-  	Then el navegador me muestra un mensaje de reserva exitosa
+    And el navegador me muestra un mensaje de reserva exitosa
+  	Then el navegador me muestra la nueva reserva "Lunes: 9:15 - 10:15 SPINNING" en la pagina de mis reservas

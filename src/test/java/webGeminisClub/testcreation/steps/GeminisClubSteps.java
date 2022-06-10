@@ -26,7 +26,6 @@ public class GeminisClubSteps {
     public void estoyEnUnNavegadorConLaPaginaInicialDeGeminisClub() {
         homePage = new GCHomePage(driver,wait);
         homePage.goToUrl(url);
-        throw new io.cucumber.java.PendingException();
     }
 
      @Given("estoy en un navegador con la pagina de registro de Geminis Club")
@@ -197,11 +196,11 @@ public class GeminisClubSteps {
     public void inicioSesionConMiMailYContraseña(String arg0, String arg1) throws InterruptedException {
         this.estoyEnUnNavegadorConLaPaginaDeRegistroDeGeminisClub();
         this.ingresoNombre("user");
-        this.ingresoApellido("gym 1");
-        this.ingresoDni("77777777");
+        this.ingresoApellido("gym 2");
+        this.ingresoDni("77777770");
         this.ingresoFNacimiento("08062022");
-        this.ingresoTelefono("1122334400");
-        this.ingresoEmail("usergym1@mail.com");
+        this.ingresoTelefono("1122334401");
+        this.ingresoEmail("usergym2@mail.com");
         this.ingresoContrasenaDelNuevoUsuario("user1234");
         this.presionoRegistrarse();
     }

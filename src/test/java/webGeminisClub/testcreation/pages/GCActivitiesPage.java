@@ -48,6 +48,7 @@ public class GCActivitiesPage extends SeleniumBase {
             if (timeslot.getText().equals(string)){
                 timeslot.click();
                 Assert.assertTrue(timeslot.isSelected());
+                click(btnReservation);
                 break;
             }
         }

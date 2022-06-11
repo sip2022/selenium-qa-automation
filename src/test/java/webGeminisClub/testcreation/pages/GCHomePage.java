@@ -49,6 +49,6 @@ public class GCHomePage extends SeleniumBase {
 
     public void goToUser() {
         click(btnUser);
-        waitUrlContains("users");
+        waitUrlContains("user");
     }
 }

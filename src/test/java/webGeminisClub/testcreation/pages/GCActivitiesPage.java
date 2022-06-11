@@ -33,7 +33,7 @@ public class GCActivitiesPage extends SeleniumBase {
         for (WebElement act : activities) {
             WebElement activity = act.findElement(actName);
             if (activity.getText().equals(string)){
-                act.findElement(actSeeMore).click();
+                act.click();
                 break;
             }
         }
@@ -56,7 +56,7 @@ public class GCActivitiesPage extends SeleniumBase {
     }
 
     public void validateFrameReservation() {
-        waitElementVisible(modalActivity);
+        //waitElementVisible(modalActivity);
         WebElement title = findElement(modalActivity).findElement(By.tagName("h2"));
         Assert.assertEquals(title.getText(),activityName);
     }

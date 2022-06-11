@@ -3,7 +3,7 @@ Feature: Pago suscripcion
   Quiero poder pagar la suscripcion al pal elegido,
   Para poder seguir utilizando los servicios del gimnasio.
 
-
+@test
   Scenario: Pago Plan con tarjeta
     Given estoy en un navegador con la pagina inicial de Geminis Club
     When inicio sesion con mi mail "usuario" y contraseña "password"

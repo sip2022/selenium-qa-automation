@@ -3,8 +3,8 @@ Feature: Suscribirse a un plan
   Quiero suscribirme a un plan,
   Para poder utilizar los servicios del gimnsio.
 
-
-  Scenario:
+@test
+  Scenario: Suscripcion actividad
    Given estoy en un navegador con la pagina inicial de Geminis Club
    When inicio sesion con mi mail "usuario" y contraseña "password"
    And presiono boton Planes
@@ -13,4 +13,4 @@ Feature: Suscribirse a un plan
    And presiono el boton suscribirse
    And confirmo suscripcion
    And el navegador me muestra un mensaje de suscripcion exitosa
-   Then el navegador me muestra mi lista de pagos con el pago pendiente de la suscripcion por 1 mes del plan "Paltinum" valor mensual 3500
+   Then el navegador me muestra mi lista de pagos con el pago pendiente de la suscripcion por 1 mes del plan "Platinum" valor mensual 3500

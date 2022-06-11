@@ -198,15 +198,7 @@ public class GeminisClubSteps {
 
     @When("inicio sesion con mi mail {string} y contraseña {string}")
     public void inicioSesionConMiMailYContraseña(String arg0, String arg1) throws InterruptedException {
-        this.estoyEnUnNavegadorConLaPaginaDeRegistroDeGeminisClub();
-        this.ingresoNombre("user");
-        this.ingresoApellido("gym 2");
-        this.ingresoDni("77777770");
-        this.ingresoFNacimiento("08062022");
-        this.ingresoTelefono("1122334401");
-        this.ingresoEmail("usergym2@mail.com");
-        this.ingresoContrasenaDelNuevoUsuario("user1234");
-        this.presionoRegistrarse();
+
     }
 
     @When("el navegador me muestra un mensaje de suscripcion exitosa")
@@ -215,32 +207,37 @@ public class GeminisClubSteps {
     }
 
     @When("presiono boton Planes")
-    public void presionoBotonPlanes() {
+    public void presionoBotonPlanes() throws InterruptedException {
         homePage.goToPlan();
         planPage = new GCPlanPage(driver,wait);
+        Thread.sleep(2000);
     }
 
     @When("selecciono el plan {string}")
-    public void seleccionoElPlan(String arg0) {
+    public void seleccionoElPlan(String arg0) throws InterruptedException {
         planPage.selectPlan(arg0);
+        Thread.sleep(2000);
     }
 
 
     @When("presiono el boton suscribirse")
-    public void presionoElBotonSuscribirse() {
+    public void presionoElBotonSuscribirse() throws InterruptedException {
         planPage.subscribe();
+        Thread.sleep(2000);
     }
 
     @When("confirmo suscripcion")
-    public void confirmoSuscripcion() {
+    public void confirmoSuscripcion() throws InterruptedException {
         planPage.confirmSubscription();
+        Thread.sleep(3000);
     }
 
 
     @When("Ingreso la cantidad de meses que quiero suscribirme al plan {string}")
-    public void ingresoLaCantidadDeMesesQueQuieroSuscribirmeAlPlan(String arg0) {
+    public void ingresoLaCantidadDeMesesQueQuieroSuscribirmeAlPlan(String arg0) throws InterruptedException {
         planPage.setMonthsSubscription(arg0);
-    }
+        Thread.sleep(2000);
+        }
 
     @Then("el navegador me muestra mi lista de pagos con el pago pendiente de la suscripcion por {int} mes del plan {string} valor mensual {int}")
     public void elNavegadorMeMuestraMiListaDePagos(int arg0, String arg1, int arg2) {

@@ -18,7 +18,7 @@ public class GCPlanPage extends SeleniumBase {
     //Locators
     By plansBtn = By.xpath("//section[@class='PlanList_singlePlan__EuTIt']"); //btn text section/h2
     By namePlan = By.xpath("//section/h2");
-    By inputMonths = By.id("input-meses");
+    By inputMonths = By.xpath("//input[@id='input-meses']");
     By suscribeBtn = By.xpath("//button[contains(text(),'Suscribirse')]");
     By confirmModal = By.xpath("//section[@class='PagoPlan_confirmacion_Display__9u9Gp']");
     By confirmBtn = By.xpath("//section/button[contains(text(),'Suscribirse')]");
@@ -56,6 +56,7 @@ public class GCPlanPage extends SeleniumBase {
 
 
     public void setMonthsSubscription(String months) {
+        waitElementVisible(inputMonths);
         setText(inputMonths,months);
         WebElement monthsInput = findElement(inputMonths);
         Assert.assertEquals(monthsInput.getAttribute("value"),months);

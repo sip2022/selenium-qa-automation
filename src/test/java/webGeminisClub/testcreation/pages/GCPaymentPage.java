@@ -28,7 +28,8 @@ public class GCPaymentPage extends SeleniumBase {
     public void validatePaymentList(int months,String plan, int price ) {
         List<WebElement> subscriptions = findElements(allSubscriptions);
         for (WebElement subscription: subscriptions) {
-            if (subscription.findElement(planLoc).getAttribute("value").contains(plan) && subscription.findElement(totalPrice).getAttribute("value").contains(String.valueOf(setText(cardNumber,arg0);
+            int total = price*months;
+            if (subscription.findElement(planLoc).getAttribute("value").contains(plan) && subscription.findElement(totalPrice).getAttribute("value").contains(String.valueOf(total))){
                 Assert.assertTrue(isDisplayed(notPaid));
                 Assert.assertTrue(getAttributeValue(planLoc).contains(plan));
                 Assert.assertTrue(getAttributeValue(monthsLoc).contains(String.valueOf(months)));
@@ -37,7 +38,6 @@ public class GCPaymentPage extends SeleniumBase {
                 break;
             }
         }
-
     }
 
     public void gotoMercadoPago(String plan, String price) {

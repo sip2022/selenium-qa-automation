@@ -19,6 +19,8 @@ public class GCHomePage extends SeleniumBase {
     By btnLogin = By.xpath("//a[contains(text(),'Iniciar sesion/Registrarse')]");
     By btnActivities = By.xpath("//a[contains(text(),'Actividades')]");
     By btnPlans = By.xpath("//a[contains(text(),'Planes')]");
+    By btnUser = By.xpath("//a[@href='/user']");
+
     public GCHomePage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
@@ -43,5 +45,10 @@ public class GCHomePage extends SeleniumBase {
     public void goToPlan() {
         click(btnPlans);
         waitUrlContains("planes");
+    }
+
+    public void goToUser() {
+        click(btnUser);
+        waitUrlContains("users");
     }
 }

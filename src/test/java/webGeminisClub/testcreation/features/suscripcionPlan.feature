@@ -3,7 +3,7 @@ Feature: Suscribirse a un plan
   Quiero suscribirme a un plan,
   Para poder utilizar los servicios del gimnsio.
 
- @test 
+
   Scenario:
    Given estoy en un navegador con la pagina inicial de Geminis Club
    When inicio sesion con mi mail "usuario" y contraseña "password"

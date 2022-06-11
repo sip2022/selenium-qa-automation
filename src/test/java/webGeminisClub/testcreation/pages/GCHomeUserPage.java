@@ -1,10 +1,13 @@
 package webGeminisClub.testcreation.pages;
 
 
+import org.openqa.selenium.WebElement;
 import webGeminisClub.bases.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 /***
  * @author luisinakelly
@@ -14,8 +17,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GCHomeUserPage extends SeleniumBase {
 
     //Locators
-    By btn = By.className("");
-
+    By cards = By.xpath("//section[@class='InicioUser_itemCard__sBcp2']");
+    By cardName = By.tagName("h3");
 
     public GCHomeUserPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -23,16 +26,29 @@ public class GCHomeUserPage extends SeleniumBase {
 
     //Keyword Driven
 
-    /***
-     * Ir a login page
-     * 
-     */
 
-    public void metodo(){
-        waitUrlContains("");
+    public void goToPayment() {
+
+        List<WebElement> buttons = findElements(cards);
+        for (WebElement btn:buttons) {
+            if (btn.findElement(cardName).getText().equals("Mis Pagos")){
+                btn.click();
+                break;
+            }
+        }
+        waitUrlContains("user/pagos");
     }
 
+    public void goToMenuAdmin() {
 
-   
+        List<WebElement> buttons = findElements(cards);
+        for (WebElement btn:buttons) {
+            if (btn.findElement(cardName).getText().equals("Menú de Administrador")){
+                btn.click();
+                break;
+            }
+        }
+        waitUrlContains("admin");
+    }
 
 }

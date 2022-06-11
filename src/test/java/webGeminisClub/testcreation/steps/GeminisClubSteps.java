@@ -15,11 +15,15 @@ public class GeminisClubSteps {
     GCResetPasswordPage resetPasswordPage;
     GCSignUpPage signUpPage;
     GCActivationPage activationPage;
+    GCHomeUserPage userHomePage;
 
     GCActivitiesPage activitiesPage;
     GCReservationPage reservationPage;
     GCPlanPage planPage;
     GCPaymentPage paymentPage;
+    GCMercadoPagoPage mpPage;
+    GCAdmin adminPage;
+    GCAdminActivitiesPage adminActivitiesPage;
 
     
     @Given("estoy en un navegador con la pagina inicial de Geminis Club")
@@ -242,5 +246,136 @@ public class GeminisClubSteps {
     public void elNavegadorMeMuestraMiListaDePagos(int arg0, String arg1, int arg2) {
         paymentPage = new GCPaymentPage(driver,wait);
         paymentPage.validatePaymentList(arg0,arg1,arg2);
+    }
+
+    @When("presiono Pagar")
+    public void presionoPagar() {
+        mpPage.pay();
+    }
+
+    @When("presiono boton Usuario")
+    public void presionoBotonUsuario() {
+        homePage.goToUser();
+        userHomePage = new GCHomeUserPage(driver,wait);
+    }
+
+    @When("presiono boton Mis Pagos")
+    public void presionoBotonMisPagos() {
+        userHomePage.goToPayment();
+        paymentPage = new GCPaymentPage(driver,wait);
+    }
+
+    @When("selecciono paga con tarjeta")
+    public void seleccionoPagaConTarjeta() {
+        mpPage.selectPayByCard();
+    }
+
+    @When("ingreso numero de tarjeta {string}")
+    public void ingresoNumeroDeTarjeta(String arg0) {
+        mpPage.setcardNumber(arg0);
+    }
+
+    @When("ingreso vencimiento de la tarjeta {string}")
+    public void ingresoVencimientoDeLaTarjeta(String arg0) {
+        mpPage.setExpirationDateCard(arg0);
+    }
+
+    @When("ingreso titular de la tarjeta {string}")
+    public void ingresoTitularDeLaTarjeta(String arg0) {
+        mpPage.setCustomerName(arg0);
+    }
+
+    @When("ingreso cvv {string}")
+    public void ingresoCvv(String arg0) {
+        mpPage.setCvv(arg0);
+    }
+
+
+    @When("ingreso dni del titular de la tarjeta {string}")
+    public void ingresoDniDelTitularDeLaTarjeta(String arg0) {
+        mpPage.setDni(arg0);
+    }
+
+    @When("selecciono numero de cuotas {string}")
+    public void seleccionoNumeroDeCuotas(String arg0) {
+        mpPage.selectNumberOfPayments(arg0);
+    }
+
+    @When("presiono volver al sitio")
+    public void presionoVolverAlSitio() {
+        mpPage.goToGCPage();
+    }
+
+    @Then("el navegador me muestra el pago en listas de pago")
+    public void elNavegadorMeMuestraElPagoEnListasDePago() {
+        paymentPage.validatePaymentHistory();
+    }
+
+
+    @When("presiono enlace para pagar suscripcion de mi plan {string} con un valor total de {string}")
+    public void presionoEnlaceParaPagarSuscripcionDeMiPlanConUnValorTotalDe(String arg0, String arg1) {
+        paymentPage.gotoMercadoPago(arg0,arg1);
+        mpPage = new GCMercadoPagoPage(driver,wait);
+    }
+
+    @When("presiono boton continuar para complettar dni")
+    public void presionoBotonContinuarParaComplettarDni() {
+        mpPage.clickContinue("nextDni");
+    }
+
+    @When("presiono boton continuar para seleccionar cuotas")
+    public void presionoBotonContinuarParaSeleccionarCuotas() {
+        mpPage.clickContinue("nextInstallments");
+    }
+
+    @When("presiono boton continuar para confirmar pago")
+    public void presionoBotonContinuarParaConfirmarPago() {
+        mpPage.clickContinue("nextPay");
+    }
+
+    @When("presiono boton Admin")
+    public void presionoBotonAdmin() {
+        userHomePage.goToMenuAdmin();
+    }
+
+    @When("selecciono actividades")
+    public void seleccionoActividades() {
+        adminPage = new GCAdmin(driver,wait);
+        adminPage.activities();
+        adminActivitiesPage = new GCAdminActivitiesPage(driver,wait);
+    }
+
+    @When("presiono el boton Agregar actividad")
+    public void presionoElBotonAgregarActividad() {
+        adminActivitiesPage.add();
+    }
+
+    @When("ingreso nombre de la actividad {string}")
+    public void ingresoNombreDeLaActividad(String arg0) {
+        adminActivitiesPage.setName(arg0);
+    }
+
+    @When("selecciono profesor {string}")
+    public void seleccionoProfesor(String arg0) {
+        adminActivitiesPage.setProfessor(arg0);
+    }
+
+    @When("ingreso limite de asistencia {string}")
+    public void ingresoLimiteDeAsistencia(String arg0) {
+        adminActivitiesPage.atendeesLimit(arg0);
+    }
+
+    @When("ingreso precio base {string}")
+    public void ingresoPrecioBase(String arg0) {
+        adminActivitiesPage.setPrice(arg0);
+    }
+
+    @When("presiono crear actividad")
+    public void presionoCrearActividad() {
+        adminActivitiesPage.createActivity();
+    }
+
+    @Then("el navegador muestra un mensaje de creacion de nueva actividad exitosa")
+    public void elNavegadorMuestraUnMensajeDeCreacionDeNuevaActividadExitosa() {
     }
 }

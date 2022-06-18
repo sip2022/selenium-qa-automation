@@ -3,7 +3,7 @@ Feature: Reservar actividad
   Quiero reservar un turno,
   Para poder realizar una clase .
 
-  @test
+@test
   Scenario: Reservar Actividad
     Given estoy en un navegador con la pagina inicial de Geminis Club
   	When inicio sesion con mi mail "usuario" y contraseña "password"

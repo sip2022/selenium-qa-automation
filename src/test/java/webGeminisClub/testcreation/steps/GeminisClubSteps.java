@@ -1,5 +1,6 @@
 package webGeminisClub.testcreation.steps;
 
+import org.junit.Assert;
 import webGeminisClub.bases.AppHook;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
@@ -98,7 +99,7 @@ public class GeminisClubSteps {
     @Then("el navegador muestra el mensaje {string}")
     public void elNavegadorMuestraElMensaje(String arg0) throws InterruptedException {
     	activationPage = new GCActivationPage(driver,wait);
-    	activationPage.validateNewUser(arg0);
+        Assert.assertEquals(activationPage.validateNewUser(arg0),arg0);
         Thread.sleep(5000);
     }
 
@@ -172,8 +173,9 @@ public class GeminisClubSteps {
     }
 
     @When("selecciono el turno {string}")
-    public void selecciono_el_turno(String string) {
+    public void selecciono_el_turno(String string) throws InterruptedException {
         activitiesPage.reservation(string);
+        Thread.sleep(5000);
     }
 
     @When("el navegador me muestra modal de reserva")
@@ -263,9 +265,12 @@ public class GeminisClubSteps {
     }
 
     @When("selecciono paga con tarjeta")
-    public void seleccionoPagaConTarjeta() {
+    public void seleccionoPagaConTarjeta() throws InterruptedException {
         mpPage.selectPayByCard();
+        Thread.sleep(3000);
     }
+
+
 
     @When("ingreso numero de tarjeta {string}")
     public void ingresoNumeroDeTarjeta(String arg0) {

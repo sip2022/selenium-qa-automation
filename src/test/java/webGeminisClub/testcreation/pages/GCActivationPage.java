@@ -18,9 +18,9 @@ public class GCActivationPage extends SeleniumBase {
 
     //Keyword driven
 
-    public void validateNewUser(String arg0) {
+    public String validateNewUser(String arg0) {
         waitUrlContains("/activacion");
-        Assert.assertEquals(getText(text),arg0);
+        return getText(text);
     }
 
 

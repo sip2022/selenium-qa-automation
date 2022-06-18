@@ -16,7 +16,10 @@ public class GCPlanPage extends SeleniumBase {
         super(driver, wait);
     }
     //Locators
-    By plansBtn = By.xpath("//section[@class='PlanList_singlePlan__EuTIt']"); //btn text section/h2
+    By planBronze = By.xpath("");
+    By planSilver = By.xpath("");
+    By planGold = By.xpath("");
+    By planPlatinum = By.xpath("");
     By namePlan = By.xpath("//section/h2");
     By inputMonths = By.xpath("//input[@id='input-meses']");
     By suscribeBtn = By.xpath("//button[contains(text(),'Suscribirse')]");
@@ -26,13 +29,15 @@ public class GCPlanPage extends SeleniumBase {
 
     //Keyword driven
     public void selectPlan(String arg0) {
-        List<WebElement> plans = findElements(plansBtn);
-        for (WebElement plan:plans) {
-            WebElement planName = plan.findElement(namePlan);
-            if (planName.getText().equals(arg0)){
-                plan.click();
+        switch (arg0){
+            case "Bronze": click(planBronze);
+            break;
+            case "Silver": click(planSilver);
                 break;
-            }
+            case "Gold": click(planGold);
+                break;
+            case "Platinum": click(planPlatinum);
+                break;
         }
     }
 
@@ -56,7 +61,7 @@ public class GCPlanPage extends SeleniumBase {
 
 
     public void setMonthsSubscription(String months) {
-        waitElementVisible(inputMonths);
+        ///waitElementVisible(inputMonths);
         setText(inputMonths,months);
         WebElement monthsInput = findElement(inputMonths);
         Assert.assertEquals(monthsInput.getAttribute("value"),months);

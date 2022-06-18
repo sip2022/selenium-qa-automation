@@ -1,4 +1,5 @@
 #listado de ignoorados por GIT
 .idea/
 target/
+node_modules/
 

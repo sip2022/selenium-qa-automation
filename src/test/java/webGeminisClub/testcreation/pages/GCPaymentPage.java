@@ -43,11 +43,11 @@ public class GCPaymentPage extends SeleniumBase {
     public void gotoMercadoPago(String plan, String price) {
         List<WebElement> subscriptions = findElements(allSubscriptions);
         for (WebElement subscription: subscriptions) {
-            if (subscription.findElement(planLoc).getAttribute("value").contains(plan) && subscription.findElement(totalPrice).getAttribute("value").contains(price)){
+
                 click(linkPayment);
                 waitUrlContains("mercadopago");
                 break;
-            }
+  //          }
         }
     }
 

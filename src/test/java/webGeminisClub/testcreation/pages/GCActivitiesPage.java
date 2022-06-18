@@ -14,7 +14,7 @@ public class GCActivitiesPage extends SeleniumBase {
         super(driver, wait);
     }
 
-    private static String activityName;
+    private String activityName;
 
     //Locators
     By activitiesLoc = By.xpath("//section[@class='ActividadCard_actividad__jeI3L']");
@@ -22,9 +22,14 @@ public class GCActivitiesPage extends SeleniumBase {
     By actSeeMore = By.tagName("button");
     By activitySection = By.id("actividad_section");
     By titleActivity = By.tagName("h1");
-    By allTimeslots = By.xpath("//input[@name='horario']");
-    By modalActivity = By.xpath("//section[@class='Actividad_reserva_Display__JUqSd']");
-    By btnReservation = By.xpath("//button[contains(text(),'Reservar')]");
+    By allTimeslots = By.xpath("Actividad_horario_radio__vcDZL");
+    By timeslot = By.xpath("//input[@id='horario_0']");
+    By modalActivity = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]/section[5]/section[1]/section[1]/h2[1]");
+    By btnReservation = By.xpath("//section/button[contains(text(),'Reservar')]");
+    By btnReservationActivity = By.xpath("//section[@class='Actividad_reserva_Display__JUqSd']/section[1]/section[3]/button");
+    By modalConfirm = By.xpath("//body[1]/div[1]/div[1]/div[1]/main[1]/section[1]/section[5]/section[1]/section[2]/section[1]");
+    By modalConfirmText = By.xpath("//body[1]/div[1]/div[1]/div[1]/main[1]/section[1]/section[5]/section[1]/section[2]/section[1]/section[1]/h2[1]");
+    By closeBtn = By.xpath("//body/div[@id='root']/div[1]/div[1]/main[1]/section[1]/section[5]/section[1]/section[2]/section[1]/section[2]/button[1]");
     //Keyword driven
 
     public void selectActivity(String string) {
@@ -43,36 +48,38 @@ public class GCActivitiesPage extends SeleniumBase {
     }
 
     public void reservation(String string) {
-        List<WebElement> timeslots = findElements(allTimeslots);
+        click(timeslot);
+        Assert.assertTrue(isSelected(timeslot));
+        click(btnReservation);
+        /*List<WebElement> timeslots = findElements(allTimeslots);
+        timeslots.get(0).click();
         for (WebElement timeslot: timeslots) {
-            if (timeslot.getText().equals(string)){
+           WebElement text = (WebElement) timeslot.findElements(By.tagName("label"));
+            if (text.getText().equals(string)){
                 timeslot.click();
                 Assert.assertTrue(timeslot.isSelected());
                 click(btnReservation);
                 break;
             }
-        }
-
+        }*/
     }
 
     public void validateFrameReservation() {
-        //waitElementVisible(modalActivity);
-        WebElement title = findElement(modalActivity).findElement(By.tagName("h2"));
-        Assert.assertEquals(title.getText(),activityName);
+       waitElementVisible(modalActivity);
+        Assert.assertEquals(getText(modalActivity),activityName);
     }
 
     public void confirmReservation() {
-        WebElement reservation = findElement(modalActivity).findElement(btnReservation);
-        reservation.click();
-        
+        List<WebElement>btnsReservation = findElements(btnReservation);
+        btnsReservation.get(1).click();
     }
 
     public void validateReservation() {
-        Alert alertReservation = waitAlertDisplayed();
-        String alertText = alertReservation.getText();
-        Assert.assertTrue(alertText.contains("Reserva exitosa"));
-        alertReservation.accept();
-        waitUrlContains("reservas");
+        waitElementVisible(modalConfirm);
+        System.out.println(getText(modalConfirmText));
+        //Assert.assertTrue(getAttributeValue(modalConfirmText).contains("Reserva exitosa"));
+        click(closeBtn);
+
     }
 
 }

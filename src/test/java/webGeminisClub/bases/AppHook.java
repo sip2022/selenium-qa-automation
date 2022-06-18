@@ -34,7 +34,6 @@ public class AppHook {
     public void cleanup() {
         if (driver != null) driver.close();
     }
-
     public static WebDriver getDriver(){
         return driver;
     }

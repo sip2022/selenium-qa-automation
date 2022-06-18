@@ -1,0 +1,22 @@
+{
+  "name": "selenium-qa-automation",
+  "version": "1.0.0",
+  "description": "QA Automation SIP UNLu 2022",
+  "main": "index.js",
+  "scripts": {
+    "report": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sip2022/selenium-qa-automation.git"
+  },
+  "author": "luisinakelly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sip2022/selenium-qa-automation/issues"
+  },
+  "homepage": "https://github.com/sip2022/selenium-qa-automation#readme",
+  "devDependencies": {
+    "multiple-cucumber-html-reporter": "^1.21.4"
+  }
+}
